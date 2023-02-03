@@ -3,7 +3,8 @@
 name: probandoestructura
 env:
   # Setting an environment variable with the value of a configuration variable
-  nombresubscripcion: googlecloudliv
+  nombresubscripcion: ${{ vars.NOMBRESUBSCRIPTIONGOOGLE }}
+  clavegoogle: ${{ secrets.CLAVESUBSCRIPTION }}
 
 # Controls when the workflow will run
 on:
@@ -30,7 +31,7 @@ jobs:
           echo subscripcion : ${{ env.nombresubscripcion }}
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: verificando el secreto
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo aquí el secreto
+          echo clave google ${{ env.clavegoogle }}
